@@ -59,7 +59,7 @@ class ScanCodeActivityActivity : AppCompatActivity(), ZXingScannerView.ResultHan
         val scanData = rawResult.text.toString()
 
         MainActivity.scanContent!!.setText(rawResult.text)
-
+/*
             if (scanData != null) {
                 // Here we need to handle scanned data...
                 SendRequest().execute(scanData)
@@ -67,7 +67,7 @@ class ScanCodeActivityActivity : AppCompatActivity(), ZXingScannerView.ResultHan
                 //TODO Handle error case
                 Log.i(tag, " NullValue read")
             }
-
+*/
 
 
         // what is this to do
@@ -77,7 +77,7 @@ class ScanCodeActivityActivity : AppCompatActivity(), ZXingScannerView.ResultHan
         //mScannerView.resumeCameraPreview(this);
     }
 }
-
+/*
 class SendRequest : AsyncTask<String, Void, String>() {
 
     private var tag = "MyMessage"
@@ -192,3 +192,4 @@ class SendRequest : AsyncTask<String, Void, String>() {
     }
 }
 
+*/
