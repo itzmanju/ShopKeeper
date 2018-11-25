@@ -7,7 +7,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.content.Intent
-import android.os.AsyncTask
+
 import android.view.Menu
 import android.view.MenuItem
 import android.util.Log
@@ -16,15 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import org.json.JSONObject
-import java.io.BufferedReader
-import java.io.BufferedWriter
-import java.io.InputStreamReader
-import java.io.OutputStreamWriter
-import java.net.HttpURLConnection
-import java.net.URL
-import java.net.URLEncoder
-import javax.net.ssl.HttpsURLConnection
+
 
 const val SCAN_CONTENT_REQUEST = 1  // The request code
 
@@ -80,21 +72,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
      override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         // Log.i(tag, scanContent)
-         var data = findViewById<TextView>(R.id.scan_content)
-         Log.i(tag, data.text.toString())
+         var datatoadd = findViewById<TextView>(R.id.scan_content)
+         Log.i(tag, datatoadd.text.toString())
          // Check which request we're responding to
         if (requestCode == SCAN_CONTENT_REQUEST) {
             // Make sure the request was successful
-            if (data.text != null) {
+            /*
+            if (datatoadd.text != null) {
                 // Here we need to handle scanned data...
-                SendRequest().execute(data.text.toString())
+                SendRequest().execute(datatoadd.text.toString())
             } else {
                 //TODO Handle error case
                 Log.i(tag, " NullValue read")
             }
+            */
         }
-    }
-    
+         super.onActivityResult(requestCode, resultCode, data)
+     }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
@@ -141,6 +136,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 }
 
+/*
 class SendRequest : AsyncTask<String, Void, String>() {
 
     private var tag = "MyMessage"
@@ -254,4 +250,4 @@ class SendRequest : AsyncTask<String, Void, String>() {
         return result.toString()
     }
 }
-
+*/
